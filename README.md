@@ -1,9 +1,20 @@
 # COBOL/CICS Hangman Game
 
-This project is a COBOL/CICS-based Hangman game demonstrating how interactive applications are built in a mainframe environment using a pseudo-conversational model.
+## 🚀 Project Summary
 
-The application was presented during IBM Z Day, showcasing real-time interaction, transaction handling, and integration with DB2.
+A COBOL/CICS-based interactive Hangman game built on a mainframe environment, demonstrating pseudo-conversational design, DB2 integration, and BMS-driven screen handling.
 
+The application was presented during IBM Z Day, showcasing real-time interaction and transaction-based processing in a CICS environment.
+
+---
+
+## 🎯 What this project demonstrates
+
+- Building interactive applications in a CICS environment  
+- Managing state using pseudo-conversational design  
+- Integrating COBOL with DB2 using embedded SQL  
+- Designing terminal UIs using BMS maps  
+- Handling user input and validation in a transactional system  
 ---
 
 ## 📸 Demo
