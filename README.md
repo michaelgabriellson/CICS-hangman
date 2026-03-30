@@ -4,7 +4,7 @@
 
 A COBOL/CICS-based interactive Hangman game built on a mainframe environment, showing how user interactions are handled step by step in a CICS application, DB2 integration, and BMS-driven screen handling.
 
-The application was presented during IBM Z Day, showcasing real-time interaction and transaction-based processing in a CICS environment.
+The application was presented during IBM Z Day in 2025, showcasing real-time interaction and transaction-based processing in a CICS environment.
 
 ---
 
