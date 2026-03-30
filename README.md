@@ -20,7 +20,7 @@ The application was presented during IBM Z Day, showcasing real-time interaction
 
 ## 📸 Demo
 
-![Demo](images/demo.png)
+![Demo](images/demo.jpg)
 
 ---
 
