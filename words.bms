@@ -1,0 +1,394 @@
+WORDS    DFHMSD TYPE=&SYSPARM,                                         X
+               MODE=INOUT,                                             X
+               CTRL=FREEKB,                                            X
+               LANG=COBOL,                                             X
+               TIOAPFX=YES,                                            X
+               DSATTS=(COLOR,HILIGHT),                                 X
+               MAPATTS=(COLOR,HILIGHT),                                X
+               STORAGE=AUTO
+***********************************************************************
+HOMESCR  DFHMDI SIZE=(24,80)
+***********************************************************************
+* TITLE
+***********************************************************************
+         DFHMDF POS=(05,35),                                           X
+               LENGTH=09,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='HANG MAN!'
+***********************************************************************
+* TITLE
+***********************************************************************
+         DFHMDF POS=(06,31),                                           X
+               LENGTH=14,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='WORDS IN GAME:'
+NUMWORDS DFHMDF POS=(06,46),                                           X
+               LENGTH=3,                                               X
+               ATTRB=(PROT,FSET),                                      X
+               PICIN='9(03)',                                          X
+               PICOUT='9(03)',                                         X
+               COLOR=RED
+         DFHMDF POS=(06,50),                                           X
+               LENGTH=1,                                               X
+               ATTRB=ASKIP
+***********************************************************************
+F2START  DFHMDF POS=(07,30),                                           X
+               LENGTH=26,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='PRESS F2 TO START!'
+***********************************************************************
+         DFHMDF POS=(13,36),                                           X
+               LENGTH=07,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='_______'
+***********************************************************************
+         DFHMDF POS=(14,35),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='|'
+***********************************************************************
+         DFHMDF POS=(14,43),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='|'
+***********************************************************************
+         DFHMDF POS=(15,35),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='O'
+***********************************************************************
+         DFHMDF POS=(15,43),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='|'
+***********************************************************************
+         DFHMDF POS=(16,34),                                           X
+               LENGTH=03,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='/|\ '
+***********************************************************************
+         DFHMDF POS=(16,43),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='|'
+***********************************************************************
+         DFHMDF POS=(17,34),                                           X
+               LENGTH=03,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='/ \'
+***********************************************************************
+         DFHMDF POS=(17,41),                                           X
+               LENGTH=05,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='- - -'
+***********************************************************************
+GAMESCR  DFHMDI SIZE=(24,80)
+***********************************************************************
+* TITLE
+***********************************************************************
+*        DFHMDF POS=(05,36),                                           X
+               LENGTH=09,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL='HANG MAN!'
+***********************************************************************
+WORDLEN  DFHMDF POS=(06,44),                                           X
+               LENGTH=2,                                               X
+               ATTRB=(PROT,FSET),                                      X
+               PICIN='9(02)',                                          X
+               PICOUT='9(02)',                                         X
+               COLOR=RED
+         DFHMDF POS=(06,47),                                           X
+               LENGTH=1,                                               X
+               ATTRB=ASKIP
+***********************************************************************
+* RESULT
+***********************************************************************
+MSG3     DFHMDF POS=(08,33),                                           X
+               LENGTH=30,                                              X
+               ATTRB=(BRT,PROT),                                       X
+               COLOR=GREEN
+***********************************************************************
+* CHARS 1-10
+***********************************************************************
+CHAR1          DFHMDF POS=(10,33),                                     X
+               LENGTH=1,                                               X
+               ATTRB=(PROT,FSET),                                      X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)',                                         X
+               COLOR=GREEN
+***********************************************************************
+CHAR2          DFHMDF POS=(10,35),                                     X
+               LENGTH=1,                                               X
+               ATTRB=(PROT,FSET),                                      X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)',                                         X
+               COLOR=GREEN
+***********************************************************************
+CHAR3          DFHMDF POS=(10,37),                                     X
+               LENGTH=1,                                               X
+               ATTRB=(PROT,FSET),                                      X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)',                                         X
+               COLOR=GREEN
+***********************************************************************
+CHAR4          DFHMDF POS=(10,39),                                     X
+               LENGTH=1,                                               X
+               ATTRB=(PROT,FSET),                                      X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)',                                         X
+               COLOR=GREEN
+***********************************************************************
+CHAR5          DFHMDF POS=(10,41),                                     X
+               LENGTH=1,                                               X
+               ATTRB=(PROT,FSET),                                      X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)',                                         X
+               COLOR=GREEN
+***********************************************************************
+CHAR6          DFHMDF POS=(10,43),                                     X
+               LENGTH=1,                                               X
+               ATTRB=(PROT,FSET),                                      X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)',                                         X
+               COLOR=GREEN
+***********************************************************************
+CHAR7          DFHMDF POS=(10,45),                                     X
+               LENGTH=1,                                               X
+               ATTRB=(PROT,FSET),                                      X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)',                                         X
+               COLOR=GREEN
+***********************************************************************
+CHAR8          DFHMDF POS=(10,47),                                     X
+               LENGTH=1,                                               X
+               ATTRB=(PROT,FSET),                                      X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)',                                         X
+               COLOR=GREEN
+***********************************************************************
+CHAR9          DFHMDF POS=(10,49),                                     X
+               LENGTH=1,                                               X
+               ATTRB=(PROT,FSET),                                      X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)',                                         X
+               COLOR=GREEN
+***********************************************************************
+CHAR10         DFHMDF POS=(10,51),                                     X
+               LENGTH=1,                                               X
+               ATTRB=(PROT,FSET),                                      X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)',                                         X
+               COLOR=GREEN
+***********************************************************************
+BLANK          DFHMDF POS=(10,53),                                     X
+               LENGTH=1,                                               X
+               ATTRB=(PROT),                                           X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)',                                         X
+               COLOR=GREEN
+***********************************************************************
+HVLINE   DFHMDF POS=(10,65),                                           X
+               LENGTH=05,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(05)',                                          X
+               PICOUT='X(05)'
+***********************************************************************
+HLINE1   DFHMDF POS=(11,64),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+HLINE2   DFHMDF POS=(11,70),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+MSG4     DFHMDF POS=(12,33),                                           X
+               LENGTH=30,                                              X
+               ATTRB=(BRT,PROT),                                       X
+               COLOR=RED
+***********************************************************************
+HHEAD    DFHMDF POS=(12,64),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+HLINE3   DFHMDF POS=(12,70),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+MSG5     DFHMDF POS=(13,33),                                           X
+               LENGTH=28,                                              X
+               ATTRB=(BRT,PROT),                                       X
+               COLOR=GREEN
+***********************************************************************
+HLHAND   DFHMDF POS=(13,63),                                           X
+               LENGTH=03,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(03)',                                          X
+               PICOUT='X(03)'
+***********************************************************************
+HLINE4   DFHMDF POS=(13,70),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+HLFOOT1  DFHMDF POS=(14,63),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+HLFOOT2  DFHMDF POS=(14,65),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+HLINE5   DFHMDF POS=(14,70),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+CHARW1   DFHMDF POS=(15,01),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+CHARW2   DFHMDF POS=(15,03),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+CHARW3   DFHMDF POS=(15,05),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+CHARW4   DFHMDF POS=(15,07),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+CHARW5   DFHMDF POS=(15,09),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+CHARW6   DFHMDF POS=(15,11),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+CHARW7   DFHMDF POS=(15,13),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+CHARW8   DFHMDF POS=(15,15),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+CHARW9   DFHMDF POS=(15,17),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+CHARW10  DFHMDF POS=(15,19),                                           X
+               LENGTH=01,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)'
+***********************************************************************
+INPUT   DFHMDF POS=(15,39),                                            X
+               LENGTH=1,                                               X
+               ATTRB=(UNPROT,IC,FSET),                                 X
+               PICIN='X(01)',                                          X
+               PICOUT='X(01)',                                         X
+               COLOR=GREEN
+        DFHMDF POS=(15,41),                                            X
+               LENGTH=1,                                               X
+               ATTRB=ASKIP
+***********************************************************************
+HBASE    DFHMDF POS=(15,68),                                           X
+               LENGTH=05,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               PICIN='X(05)',                                          X
+               PICOUT='X(05)'
+***********************************************************************
+* RESULT
+***********************************************************************
+MSG1     DFHMDF POS=(21,33),                                           X
+               LENGTH=30,                                              X
+               ATTRB=(BRT,PROT),                                       X
+               COLOR=RED
+***********************************************************************
+MSG2     DFHMDF POS=(22,29),                                           X
+               LENGTH=30,                                              X
+               ATTRB=(BRT,PROT),                                       X
+               COLOR=GREEN
+***********************************************************************
+* COMMANDS
+***********************************************************************
+         DFHMDF POS=(24,28),                                           X
+               LENGTH=36,                                              X
+               ATTRB=PROT,                                             X
+               COLOR=RED,                                              X
+               INITIAL=' F2 NEW GAME | F3 EXIT GAME'
+***********************************************************************
+* END
+***********************************************************************
+         DFHMSD TYPE=FINAL
+         END
+
