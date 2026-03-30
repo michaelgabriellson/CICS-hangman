@@ -152,3 +152,15 @@ The application demonstrates how COBOL programs interact with BMS maps to create
 ## 📌 Purpose
 
 This project was developed to gain hands-on experience with COBOL, CICS, DB2, and BMS, focusing on how interactive systems are implemented in a transactional mainframe environment.
+
+## 🚧 Challenges & Learnings
+
+- Understanding how CICS handles program flow across multiple executions was initially challenging, especially how each user interaction triggers a new program call.
+
+- Managing state between interactions required learning how COMMAREA is used to persist data across transactions.
+
+- Working with BMS maps provided insight into how terminal UIs are built, including how field attributes (PROT, UNPROT, FSET) control user input and screen behavior.
+
+- Integrating COBOL with DB2 using embedded SQL helped me understand how mainframe applications interact with relational databases.
+
+- Structuring the application logic into clear sections (input handling, validation, game logic) improved readability and maintainability.
