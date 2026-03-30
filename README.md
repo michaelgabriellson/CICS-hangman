@@ -2,19 +2,20 @@
 
 ## 🚀 Project Summary
 
-A COBOL/CICS-based interactive Hangman game built on a mainframe environment, showing how user interactions are handled step by step in a CICS application, DB2 integration, and BMS-driven screen handling.
+A COBOL/CICS-based interactive Hangman game built on a mainframe environment, showing how user interactions are handled step by step in a CICS application, along with DB2 integration and BMS-driven screen handling.
 
-The application was presented during IBM Z Day in 2025, showcasing real-time interaction and transaction-based processing in a CICS environment.
+The application was presented during IBM Z Day, showcasing real-time interaction and transaction-based processing in a CICS environment.
 
 ---
 
 ## 🎯 What this project demonstrates
 
 - Building interactive applications in a CICS environment  
-- Managing state using pseudo-conversational design  
+- Handling user input step by step across multiple CICS calls  
 - Integrating COBOL with DB2 using embedded SQL  
 - Designing terminal UIs using BMS maps  
-- Handling user input and validation in a transactional system  
+- Managing game logic and validation in a transactional system  
+
 ---
 
 ## 📸 Demo
@@ -30,17 +31,6 @@ The application was presented during IBM Z Day in 2025, showcasing real-time int
 - BMS Maps (Basic Mapping Support for screen handling)
 - DB2
 - SQL (embedded in COBOL)
-
----
-
-## 🧠 Key Features
-
-- Pseudo-conversational transaction flow using CICS
-- User input handling via EIBAID (ENTER, PF keys)
-- State management using COMMAREA
-- Dynamic screen updates using BMS maps
-- Random word selection from DB2
-- Interactive gameplay with win/loss logic
 
 ---
 
@@ -73,43 +63,83 @@ END-EXEC
 ```
 
 ### Iterative Input Processing
+
+This logic validates user input, checks if the guessed character exists in the word, and updates both the UI and internal state.
+
 ```cobol
-PERFORM VARYING WS-POS FROM 1 BY 1 UNTIL WS-POS > 10
+MOVE 0 TO WS-CHAR-COUNT
+INSPECT WORD TALLYING WS-CHAR-COUNT FOR ALL INPUTI
+
+IF WS-CHAR-COUNT = 0 AND INPUTI IS ALPHABETIC
+   MOVE 'WRONG CHARACTER!' TO MSG1O
+   ADD 1 TO WS-COUNTER1
+ELSE
+   ADD 1 TO WS-COUNTER2
+   PERFORM VARYING WS-POS FROM 1 BY 1 UNTIL WS-POS > 10
+      IF INPUTI = WORD(WS-POS:1)
+         EVALUATE WS-POS
+            WHEN 1  MOVE INPUTI TO CHAR1O WS-GUESS(1:1)
+            WHEN 2  MOVE INPUTI TO CHAR2O WS-GUESS(2:1)
+            WHEN 3  MOVE INPUTI TO CHAR3O WS-GUESS(3:1)
+            WHEN 4  MOVE INPUTI TO CHAR4O WS-GUESS(4:1)
+            WHEN 5  MOVE INPUTI TO CHAR5O WS-GUESS(5:1)
+            WHEN 6  MOVE INPUTI TO CHAR6O WS-GUESS(6:1)
+            WHEN 7  MOVE INPUTI TO CHAR7O WS-GUESS(7:1)
+            WHEN 8  MOVE INPUTI TO CHAR8O WS-GUESS(8:1)
+            WHEN 9  MOVE INPUTI TO CHAR9O WS-GUESS(9:1)
+            WHEN 10 MOVE INPUTI TO CHAR10O WS-GUESS(10:1)
+         END-EVALUATE
+      END-IF
+   END-PERFORM
+END-IF
 ```
 
 ---
 
 ## 🖥️ BMS Maps
 
-The project includes full BMS map definitions in the `words.bms` file, used to control screen layout and user interaction in the CICS environment.
+The project includes a full BMS mapset (`WORDS.bms`) used to define the terminal UI and user interaction.
 
-Below is a simplified excerpt from the mapset:
+Below is a simplified excerpt showing the mapset structure and key fields:
 
 ```cobol
-INSMAP   DFHMSD TYPE=&SYSPARM,
+WORDS    DFHMSD TYPE=&SYSPARM,
                MODE=INOUT,
                CTRL=FREEKB,
                LANG=COBOL,
-               MAPATTS=COLOR,
+               DSATTS=(COLOR,HILIGHT),
+               MAPATTS=(COLOR,HILIGHT),
                STORAGE=AUTO
 
-HOMESCR  DFHMDI SIZE=(24,80),LINE=1,COLUMN=1
+HOMESCR  DFHMDI SIZE=(24,80)
 
-DFHMDF POS=(01,28),
+DFHMDF POS=(05,35),
+       LENGTH=09,
+       ATTRB=PROT,
+       COLOR=RED,
+       INITIAL='HANG MAN!'
+
+F2START  DFHMDF POS=(07,30),
        LENGTH=26,
        ATTRB=PROT,
-       COLOR=GREEN,
-       INITIAL='GROUP 3 GRADUATION PROJECT'
+       COLOR=RED,
+       INITIAL='PRESS F2 TO START!'
 
-ACTION   DFHMDF POS=(03,16),
+INPUT   DFHMDF POS=(15,39),
        LENGTH=1,
-       ATTRB=(UNPROT,IC),
+       ATTRB=(UNPROT,IC,FSET),
        PICIN='X(01)',
        PICOUT='X(01)',
-       COLOR=TURQUOISE
+       COLOR=GREEN
 ```
 
-These maps are used together with CICS `SEND` and `RECEIVE` commands to manage terminal-based UI, including protected/unprotected fields, input validation, and dynamic screen updates.
+The BMS maps define:
+- Screen layout and positioning  
+- Protected vs unprotected input fields  
+- Visual elements such as the hangman drawing  
+- User interaction via keyboard input  
+
+These maps are used together with CICS `SEND` and `RECEIVE` to dynamically update the UI during gameplay.
 
 ---
 
